@@ -43,6 +43,6 @@
     <fragment
         android:id="@+id/aboutFragment"
         android:name="buu.informatics.s59160141.calculateelectricitybill.AboutFragment"
-        android:label="fragment_about"
+        android:label="AboutFragment"
         tools:layout="@layout/fragment_about" />
 </navigation>

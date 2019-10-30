@@ -11,4 +11,6 @@
     <string name="bathTextView">บาท</string>
     <string name="detailTextView">รายละเอียด</string>
     <string name="about_text">About</string>
+    <string name="share">Share</string>
+    <string name="share_success_text">My name is Suwijak</string>
 </resources>
