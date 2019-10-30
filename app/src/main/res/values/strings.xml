@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">CalculateElectricityBill</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="btnText1">คำนวณค่าไฟฟ้า</string>
+    <string name="btnText2">ประวัติการคำนวณ</string>
+    <string name="calculateTextView1">ปริมาณการใช้ไฟฟ้า</string>
+    <string name="unitTextView">หน่วย</string>
+    <string name="btnCalculateText">คำนวณ</string>
+    <string name="bathTextView">บาท</string>
+    <string name="detailTextView">รายละเอียด</string>
+    <string name="about_text">About</string>
+</resources>

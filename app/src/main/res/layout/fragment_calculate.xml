@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".CalculateFragment">
+
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto"
+            android:text="@string/calculateTextView1"
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/fontSize20sp"
+            app:layout_constraintBaseline_toBaselineOf="@+id/input"
+            app:layout_constraintEnd_toStartOf="@+id/input"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <EditText
+            android:id="@+id/input"
+            android:layout_width="89dp"
+            android:layout_height="45dp"
+            android:layout_marginTop="@dimen/margin100dp"
+            android:ems="10"
+            android:fontFamily="@font/roboto"
+            android:inputType="textPersonName"
+            android:textAlignment="center"
+            android:textColor="@android:color/black"
+            app:layout_constraintEnd_toStartOf="@+id/textView3"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/textView2"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto"
+            android:text="@string/unitTextView"
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/fontSize20sp"
+            app:layout_constraintBaseline_toBaselineOf="@+id/input"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/input" />
+
+        <Button
+            android:id="@+id/btnCalculate"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin50dp"
+            android:layout_marginTop="@dimen/margin50dp"
+            android:layout_marginEnd="@dimen/margin50dp"
+            android:text="@string/btnCalculateText"
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/fontSize20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/input" />
+
+        <TextView
+            android:id="@+id/resultText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="160dp"
+            android:fontFamily="@font/roboto_bold"
+            android:text="xxxx"
+            android:textAlignment="center"
+            android:textColor="@android:color/black"
+            android:textSize="30sp"
+            app:layout_constraintBaseline_toBaselineOf="@+id/textView6"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="60dp"
+            android:layout_marginEnd="84dp"
+            android:fontFamily="@font/roboto_bold"
+            android:text="@string/bathTextView"
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/fontSize30sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btnCalculate" />
+
+        <TextView
+            android:id="@+id/btnDetail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin40dp"
+            android:fontFamily="@font/roboto"
+            android:text="@string/detailTextView"
+            android:textColor="@android:color/holo_blue_dark"
+            android:textSize="@dimen/fontSize20sp"
+            android:textStyle="normal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView6" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
