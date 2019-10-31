@@ -31,52 +31,59 @@ class CalculateFragment : Fragment() {
             view.findNavController().navigate(R.id.action_calculateFragment_to_detailFragment)
         }
 
+        binding.apply {
+            resultText.visibility = View.GONE
+            textView6.visibility = View.GONE
+            btnDetail.visibility = View.GONE
+        }
         binding.btnCalculate.setOnClickListener {
             //Toast.makeText(context,"ราคา = " +R.id.input,Toast.LENGTH_LONG).show()
-            println(input)
-            calculate(R.id.input)
+            //println(binding.input.text)
+            calculate(Integer.parseInt(binding.input.text.toString()))
+            binding.apply {
+                resultText.visibility = View.VISIBLE
+                textView6.visibility = View.VISIBLE
+                btnDetail.visibility = View.VISIBLE
+            }
         }
 
         return binding.root
     }
 
 
-//        var result = 0.00
+        var result = 0.00
         private fun calculate(input: Int) {
 //        result = 0.00
-//        val unit = input
-//        var Ft = (unit * (-11.60))/100
-//        if (unit == 0 || unit == null) {
-//            //snackbar show
-//        }else {
-//
-//            if(unit > 0 && unit <= 150){
-//                result = unit * 3.2484
-//            }
-//            if(unit > 150 && unit <= 400){
-//                result = (150 * 3.2484) + ((unit - 150) * 4.2218)
-//            }
-//            if(unit > 400){
-//                result = (150 * 3.2484) + (250 * 4.2218) + ((unit-400) * 3.2484)
-//            }
+        val unit = input
+        if (unit == 0 || unit == null) {
+            //snackbar show
+        }else {
 
-//            if(unit > 400 ){
-//                result += (unit - 400) * 2.9780
-//                unit -= unit - 400
-//            }
-//            if (unit > 150 ) {
-//                result += (unit - 150) * 2.1329
-//                unit -= unit - 250
-//            }
-//            if(unit > 0 ){
-//                result += unit * 1.8047
-//            }
-//            result += 38.22  //+ค่าบริการ
-//            result += (result + Ft)*0.07
+            if(unit > 0 && unit <= 150){
+                result = unit * 3.2484
+            }
+            if(unit > 150 && unit <= 400){
+                result = (150 * 3.2484) + ((unit - 150) * 4.2218)
+            }
+            if(unit > 400){
+                result = (150 * 3.2484) + (250 * 4.2218) + ((unit-400) * 4.4217)
+            }
 
-            //Toast.makeText(context,"ราคา = " +input,Toast.LENGTH_LONG).show()
 
-//        }
+            result += 38.22  //+ค่าบริการ
+            //println("ค่าไฟฟ้าฐาน = " +result)
+            val Ft = (unit * (-11.60))/100
+            //println("ค่าไฟฟ้าผันแปร = " +Ft)
+            val vat = ((result + Ft)*0.07)
+            //println("ค่าภาษี = " +result7)
+            result += Ft + vat
+
+            //val ans = result + Ft + result7
+            //println("รวม = " +result +"" +Ft +"" +vat +" = " +ans)
+
+            Toast.makeText(context,"ราคา = " + result,Toast.LENGTH_LONG).show()
+
+        }
     }
 
 
