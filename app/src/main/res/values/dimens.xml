@@ -10,4 +10,9 @@
     <dimen name="fontSize30sp">30sp</dimen>
     <dimen name="fontSize20sp">20sp</dimen>
     <dimen name="horizontal_margin">8dp</dimen>
+    <dimen name="margin80dp">80dp</dimen>
+    <dimen name="margin160dp">160dp</dimen>
+    <dimen name="layout95dp">95dp</dimen>
+    <dimen name="layout50dp">50dp</dimen>
+    <dimen name="margin30dp">30dp</dimen>
 </resources>

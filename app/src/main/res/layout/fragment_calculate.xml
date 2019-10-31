@@ -14,41 +14,25 @@
             android:id="@+id/textView2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin30dp"
             android:fontFamily="@font/roboto"
             android:text="@string/calculateTextView1"
             android:textColor="@android:color/black"
             android:textSize="@dimen/fontSize20sp"
             app:layout_constraintBaseline_toBaselineOf="@+id/input"
-            app:layout_constraintEnd_toStartOf="@+id/input"
             app:layout_constraintStart_toStartOf="parent" />
-
-        <EditText
-            android:id="@+id/input"
-            android:layout_width="89dp"
-            android:layout_height="45dp"
-            android:layout_marginTop="@dimen/margin100dp"
-            android:ems="10"
-            android:fontFamily="@font/roboto"
-            android:inputType="textPersonName"
-            android:textAlignment="center"
-            android:textColor="@android:color/black"
-            app:layout_constraintEnd_toStartOf="@+id/textView3"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/textView2"
-            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/textView3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/margin30dp"
             android:fontFamily="@font/roboto"
             android:text="@string/unitTextView"
             android:textColor="@android:color/black"
             android:textSize="@dimen/fontSize20sp"
             app:layout_constraintBaseline_toBaselineOf="@+id/input"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/input" />
+            app:layout_constraintEnd_toEndOf="parent" />
 
         <Button
             android:id="@+id/btnCalculate"
@@ -68,7 +52,7 @@
             android:id="@+id/resultText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="160dp"
+            android:layout_marginStart="@dimen/margin160dp"
             android:fontFamily="@font/roboto_bold"
             android:text="xxxx"
             android:textAlignment="center"
@@ -81,8 +65,8 @@
             android:id="@+id/textView6"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="60dp"
-            android:layout_marginEnd="84dp"
+            android:layout_marginTop="@dimen/margin60dp"
+            android:layout_marginEnd="@dimen/margin80dp"
             android:fontFamily="@font/roboto_bold"
             android:text="@string/bathTextView"
             android:textColor="@android:color/black"
@@ -103,5 +87,18 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView6" />
+
+        <EditText
+            android:id="@+id/input"
+            android:layout_width="@dimen/layout95dp"
+            android:layout_height="@dimen/layout50dp"
+            android:layout_marginTop="100dp"
+            android:autofillHints=""
+            android:inputType="number"
+            android:maxLength="@integer/maxLength5"
+            android:textAlignment="center"
+            app:layout_constraintEnd_toStartOf="@+id/textView3"
+            app:layout_constraintStart_toEndOf="@+id/textView2"
+            app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
