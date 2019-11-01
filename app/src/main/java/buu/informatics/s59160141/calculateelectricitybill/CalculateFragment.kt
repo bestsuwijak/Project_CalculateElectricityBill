@@ -10,20 +10,22 @@ import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.findNavController
 import buu.informatics.s59160141.calculateelectricitybill.databinding.FragmentCalculateBinding
-import kotlinx.android.synthetic.main.fragment_calculate.*
-import kotlinx.android.synthetic.main.fragment_calculate.view.*
+import com.google.android.material.snackbar.Snackbar
 
 /**
  * A simple [Fragment] subclass.
  */
+@Suppress("SENSELESS_COMPARISON")
 class CalculateFragment : Fragment() {
 
+    private lateinit var binding: FragmentCalculateBinding
+    private var eb:ElectricBill = ElectricBill()
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        val binding = DataBindingUtil.inflate<FragmentCalculateBinding>(
+        binding = DataBindingUtil.inflate<FragmentCalculateBinding>(
             inflater, R.layout.fragment_calculate, container, false
         )
 
@@ -39,6 +41,8 @@ class CalculateFragment : Fragment() {
         binding.btnCalculate.setOnClickListener {
             //Toast.makeText(context,"ราคา = " +R.id.input,Toast.LENGTH_LONG).show()
             //println(binding.input.text)
+            binding.electricBill = eb
+
             calculate(Integer.parseInt(binding.input.text.toString()))
             binding.apply {
                 resultText.visibility = View.VISIBLE
@@ -51,38 +55,48 @@ class CalculateFragment : Fragment() {
     }
 
 
-        var result = 0.00
-        private fun calculate(input: Int) {
-//        result = 0.00
+
+    var result = String.format("%1.2f",0.00).toFloat()
+    private fun calculate(input: Int) {
         val unit = input
-        if (unit == 0 || unit == null) {
+        eb.unit = unit.toString()
+        if (unit == 0) {
             //snackbar show
         }else {
 
             if(unit > 0 && unit <= 150){
-                result = unit * 3.2484
+                result = String.format("%1.2f", unit * 3.2484).toFloat()
+                eb.res150 = result.toString()
             }
             if(unit > 150 && unit <= 400){
-                result = (150 * 3.2484) + ((unit - 150) * 4.2218)
+                result = String.format("%1.2f", (150 * 3.2484) + ((unit - 150) * 4.2218)).toFloat()
+                eb.res250 = result.toString()
             }
             if(unit > 400){
-                result = (150 * 3.2484) + (250 * 4.2218) + ((unit-400) * 4.4217)
+                result = String.format("%1.2f", (150 * 3.2484) + (250 * 4.2218) + ((unit-400) * 4.4217)).toFloat()
+                eb.res400 = result.toString()
             }
 
 
-            result += 38.22  //+ค่าบริการ
+            result += String.format("%1.2f", 38.22).toFloat()  //+ค่าบริการ
+            eb.serviceCharge = String.format("%1.2f", 38.22)
             //println("ค่าไฟฟ้าฐาน = " +result)
-            val Ft = (unit * (-11.60))/100
+            val Ft = String.format("%1.2f", (unit * (-11.60))/100).toFloat()
+            eb.ft = Ft.toString()
             //println("ค่าไฟฟ้าผันแปร = " +Ft)
-            val vat = ((result + Ft)*0.07)
+            val vat = String.format("%1.2f", ((result + Ft)*0.07)).toFloat()
+            eb.vat = vat.toString()
             //println("ค่าภาษี = " +result7)
-            result += Ft + vat
+            result += String.format("%1.2f", (Ft + vat)).toFloat()
 
-            //val ans = result + Ft + result7
+            val ans = String.format("%1.2f", result).toFloat()
+            eb.sum = ans.toString()
             //println("รวม = " +result +"" +Ft +"" +vat +" = " +ans)
+            //private var eb:ElectricBill = ElectricBill(unit,)
 
-            Toast.makeText(context,"ราคา = " + result,Toast.LENGTH_LONG).show()
-
+            //Toast.makeText(context,"ราคา = " + (String.format("%1.2f",result).toFloat()), Toast.LENGTH_LONG).show()
+            Snackbar.make(requireView(),"ราคา  =  " + (String.format("%1.2f",result).toFloat()), Snackbar.LENGTH_SHORT).show();
+            binding.invalidateAll()
         }
     }
 
