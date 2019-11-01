@@ -13,12 +13,13 @@ import buu.informatics.s59160141.calculateelectricitybill.databinding.FragmentAb
  */
 class AboutFragment : Fragment() {
 
+    private lateinit var binding: FragmentAboutBinding
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        val binding = DataBindingUtil.inflate<FragmentAboutBinding>(
+        binding = DataBindingUtil.inflate<FragmentAboutBinding>(
             inflater,R.layout.fragment_about,container,false
         )
 

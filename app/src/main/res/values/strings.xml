@@ -11,4 +11,14 @@
     <string name="about_text">About</string>
     <string name="share">Share</string>
     <string name="share_success_text">My name is Suwijak</string>
+    <string name="detail1_text">ส่วนที่ 1 ค่าไฟฟ้าฐาน</string>
+    <string name="unit150_label">150 หน่วยแรก</string>
+    <string name="unit250_label">250 หน่วยต่อไป</string>
+    <string name="unit400_label">เกินกว่า 400 หน่วย</string>
+    <string name="serviceCharge_label">ค่าบริการ</string>
+    <string name="baseSum_label">รวมค่าไฟฟ้าฐาน</string>
+    <string name="detail2_text">ส่วนที่ 2 ค่าไฟฟ้าแปรผัน</string>
+    <string name="ft_label">จำนวณพลังงานไฟฟ้าxค่าFt</string>
+    <string name="detail3_text">ส่วนที่ 3 ค่าภาษีมูลค่าเพิ่ม 7%</string>
+    <string name="vat_label">(ค่าไฟฟ้าฐาน + Ft) x 7%</string>
 </resources>

@@ -92,7 +92,7 @@ class CalculateFragment : Fragment() {
             val ans = String.format("%1.2f", result).toFloat()
             eb.sum = ans.toString()
             //println("รวม = " +result +"" +Ft +"" +vat +" = " +ans)
-            //private var eb:ElectricBill = ElectricBill(unit,)
+
 
             //Toast.makeText(context,"ราคา = " + (String.format("%1.2f",result).toFloat()), Toast.LENGTH_LONG).show()
             Snackbar.make(requireView(),"ราคา  =  " + (String.format("%1.2f",result).toFloat()), Snackbar.LENGTH_SHORT).show();
