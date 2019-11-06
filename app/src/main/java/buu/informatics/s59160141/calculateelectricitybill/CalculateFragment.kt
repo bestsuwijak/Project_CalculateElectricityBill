@@ -40,11 +40,16 @@ class CalculateFragment : Fragment() {
             //println(binding.input.text)
             binding.electricBill = eb
 
-            calculate(Integer.parseInt(binding.input.text.toString()))
-            binding.apply {
-                resultText.visibility = View.VISIBLE
-                textView6.visibility = View.VISIBLE
-                btnDetail.visibility = View.VISIBLE
+            if(binding.input.text.toString() == ""){
+                Snackbar.make(requireView(),"กรุณากรอกข้อมูลปริมาณการใช้ไฟฟ้า  ", Snackbar.LENGTH_SHORT).show()
+            }
+            else{
+                calculate(Integer.parseInt(binding.input.text.toString()))
+                binding.apply {
+                    resultText.visibility = View.VISIBLE
+                    textView6.visibility = View.VISIBLE
+                    btnDetail.visibility = View.VISIBLE
+                }
             }
         }
 
@@ -68,8 +73,8 @@ class CalculateFragment : Fragment() {
         var unit = input
         result = 0F
         eb.unit = unit.toString()
-        if (unit == 0) {
-            //snackbar show
+        if (unit == 0 ) {
+            Snackbar.make(requireView(),"กรุณากรอกข้อมูลปริมาณการใช้ไฟฟ้า  ", Snackbar.LENGTH_SHORT).show()
         }else {
 
             if(unit > 400){
