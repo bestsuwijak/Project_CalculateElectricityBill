@@ -13,6 +13,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@color/background"
         tools:context=".CalculateFragment">
 
 
@@ -47,6 +48,7 @@
             android:layout_marginStart="@dimen/margin50dp"
             android:layout_marginTop="@dimen/margin50dp"
             android:layout_marginEnd="@dimen/margin50dp"
+            android:background="@color/btnBackground"
             android:text="@string/btnCalculateText"
             android:textColor="@android:color/black"
             android:textSize="@dimen/fontSize20sp"

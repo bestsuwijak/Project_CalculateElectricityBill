@@ -21,4 +21,6 @@
     <string name="ft_label">จำนวณพลังงานไฟฟ้าxค่าFt</string>
     <string name="detail3_text">ส่วนที่ 3 ค่าภาษีมูลค่าเพิ่ม 7%</string>
     <string name="vat_label">(ค่าไฟฟ้าฐาน + Ft) x 7%</string>
+    <string name="sumTextView">รวม</string>
+    <string name="okTextView">ตกลง</string>
 </resources>

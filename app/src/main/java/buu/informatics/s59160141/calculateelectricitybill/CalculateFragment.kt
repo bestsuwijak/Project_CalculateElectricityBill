@@ -29,15 +29,12 @@ class CalculateFragment : Fragment() {
             inflater, R.layout.fragment_calculate, container, false
         )
 
-        binding.btnDetail.setOnClickListener { view: View ->
-            view.findNavController().navigate(R.id.action_calculateFragment_to_detailFragment)
-        }
-
         binding.apply {
             resultText.visibility = View.GONE
             textView6.visibility = View.GONE
             btnDetail.visibility = View.GONE
         }
+
         binding.btnCalculate.setOnClickListener {
             //Toast.makeText(context,"ราคา = " +R.id.input,Toast.LENGTH_LONG).show()
             //println(binding.input.text)
@@ -51,37 +48,57 @@ class CalculateFragment : Fragment() {
             }
         }
 
+        binding.btnDetail.setOnClickListener { view: View ->
+            view.findNavController()
+                .navigate(CalculateFragmentDirections
+                    .actionCalculateFragmentToDetailFragment(eb.unit, eb.res150, eb.res250,
+                        eb.res400, eb.serviceCharge, eb.ft, eb.vat, eb.sum))
+//            view.findNavController()
+//                .navigate(R.id.action_calculateFragment_to_detailFragment)
+    }
+
         return binding.root
     }
 
 
 
     var result = String.format("%1.2f",0.00).toFloat()
+    var sumRes: Float = 0F
     private fun calculate(input: Int) {
-        val unit = input
+        var unit = input
+        result = 0F
         eb.unit = unit.toString()
         if (unit == 0) {
             //snackbar show
         }else {
 
-            if(unit > 0 && unit <= 150){
-                result = String.format("%1.2f", unit * 3.2484).toFloat()
-                eb.res150 = result.toString()
+            if(unit > 400){
+                sumRes = String.format("%1.2f", (unit - 400) * 4.4217).toFloat()
+                result += sumRes
+                eb.res400 = sumRes.toString()
+                unit -= unit - 400
+
             }
             if(unit > 150 && unit <= 400){
-                result = String.format("%1.2f", (150 * 3.2484) + ((unit - 150) * 4.2218)).toFloat()
-                eb.res250 = result.toString()
+                sumRes = String.format("%1.2f", (unit - 150) * 4.2218).toFloat()
+                result += sumRes
+                eb.res250 = sumRes.toString()
+                unit -= unit - 150
+
             }
-            if(unit > 400){
-                result = String.format("%1.2f", (150 * 3.2484) + (250 * 4.2218) + ((unit-400) * 4.4217)).toFloat()
-                eb.res400 = result.toString()
+            if(unit > 0 && unit <= 150){
+                sumRes = String.format("%1.2f", unit * 3.2484).toFloat()
+                result += sumRes
+                eb.res150 = sumRes.toString()
+                unit -= unit
+
             }
 
 
             result += String.format("%1.2f", 38.22).toFloat()  //+ค่าบริการ
             eb.serviceCharge = String.format("%1.2f", 38.22)
             //println("ค่าไฟฟ้าฐาน = " +result)
-            val Ft = String.format("%1.2f", (unit * (-11.60))/100).toFloat()
+            val Ft = String.format("%1.2f", (input * (-11.60))/100).toFloat()
             eb.ft = Ft.toString()
             //println("ค่าไฟฟ้าผันแปร = " +Ft)
             val vat = String.format("%1.2f", ((result + Ft)*0.07)).toFloat()
@@ -95,11 +112,13 @@ class CalculateFragment : Fragment() {
 
 
             //Toast.makeText(context,"ราคา = " + (String.format("%1.2f",result).toFloat()), Toast.LENGTH_LONG).show()
-            Snackbar.make(requireView(),"ราคา  =  " + (String.format("%1.2f",result).toFloat()), Snackbar.LENGTH_SHORT).show();
+            Snackbar.make(requireView(),"ราคา  =  " + (String.format("%1.2f",result).toFloat()) + " บาท", Snackbar.LENGTH_SHORT).show();
             binding.invalidateAll()
         }
     }
 
 
 }
+
+
 

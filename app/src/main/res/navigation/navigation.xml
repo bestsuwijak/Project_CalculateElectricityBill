@@ -31,9 +31,32 @@
     <fragment
         android:id="@+id/detailFragment"
         android:name="buu.informatics.s59160141.calculateelectricitybill.DetailFragment"
-        android:label="DetailFragment"
-        tools:layout="@layout/fragment_detail"
-        />
+        android:label="DetailFragment">
+        <argument
+            android:name="unit"
+            app:argType="string" />
+        <argument
+            android:name="unit150"
+            app:argType="string" />
+        <argument
+            android:name="unit250"
+            app:argType="string" />
+        <argument
+            android:name="unit400"
+            app:argType="string" />
+        <argument
+            android:name="serviceCharge"
+            app:argType="string" />
+        <argument
+            android:name="ft"
+            app:argType="string" />
+        <argument
+            android:name="vat"
+            app:argType="string" />
+        <argument
+            android:name="sum"
+            app:argType="string" />
+    </fragment>
     <fragment
         android:id="@+id/historyFragment"
         android:name="buu.informatics.s59160141.calculateelectricitybill.HistoryFragment"

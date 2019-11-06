@@ -7,7 +7,8 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@color/background">
 
 
         <Button
@@ -17,7 +18,10 @@
             android:layout_marginStart="@dimen/margin40dp"
             android:layout_marginTop="@dimen/margin20dp"
             android:layout_marginEnd="@dimen/margin40dp"
+            android:background="@color/btnBackground"
+            android:fontFamily="@font/roboto_bold"
             android:text="@string/btnText2"
+            android:textSize="18sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/btnMenu1" />
@@ -29,7 +33,11 @@
             android:layout_marginStart="@dimen/margin40dp"
             android:layout_marginTop="@dimen/margin40dp"
             android:layout_marginEnd="@dimen/margin40dp"
+            android:background="@color/btnBackground"
+            android:fadeScrollbars="false"
+            android:fontFamily="@font/roboto_bold"
             android:text="@string/btnText1"
+            android:textSize="18sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/imageView" />
