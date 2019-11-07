@@ -60,13 +60,14 @@
             android:id="@+id/resultText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/margin160dp"
+            android:layout_marginStart="@dimen/margin100dp"
             android:fontFamily="@font/roboto_bold"
             android:text="@={electricBill.sum}"
             android:textAlignment="center"
             android:textColor="@android:color/black"
             android:textSize="30sp"
             app:layout_constraintBaseline_toBaselineOf="@+id/textView6"
+            app:layout_constraintEnd_toStartOf="@+id/textView6"
             app:layout_constraintStart_toStartOf="parent" />
 
         <TextView
