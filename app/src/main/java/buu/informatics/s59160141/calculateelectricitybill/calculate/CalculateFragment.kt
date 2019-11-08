@@ -50,7 +50,7 @@ class CalculateFragment : Fragment() {
         val application = requireNotNull(this.activity).application
         val dataSource = HistoryDatabase.getInstance(application).historyDatabaseDao
         viewModelFactory = CalculateViewModelFactory(dataSource, application)
-        val calculateViewModel = ViewModelProviders.of(this, viewModelFactory).get(CalculateViewModel::class.java)
+        calculateViewModel = ViewModelProviders.of(this, viewModelFactory).get(CalculateViewModel::class.java)
 
         binding.apply {
             resultText.visibility = View.GONE
@@ -69,11 +69,11 @@ class CalculateFragment : Fragment() {
                     resultText.visibility = View.VISIBLE
                     textView6.visibility = View.VISIBLE
                     btnDetail.visibility = View.VISIBLE
-                   // calculateViewModel.insertEb(ebs)
-                    calculateViewModel.insertEb(eb)
+                    //insert
+                    calculateViewModel!!.insertEb(eb)
 
-                    calculateViewModel._price.observe(this.lifecycleOwner!!, Observer { ok ->
-                       binding.resultText.text = ok
+                    calculateViewModel!!.price?.observe(this.lifecycleOwner!!, Observer { ok ->
+                        binding.resultText.text = ok
                     })
 
 

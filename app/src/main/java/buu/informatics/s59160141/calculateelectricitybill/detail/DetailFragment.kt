@@ -21,8 +21,6 @@ class DetailFragment : Fragment() {
     private lateinit var binding: FragmentDetailBinding
     private lateinit var viewModel: DetailViewModel
     private lateinit var viewModelFactory: DetailViewModelFactory
-
-//    private var eb:ElectricBill = ElectricBill()
     lateinit var args: DetailFragmentArgs
 
     override fun onCreateView(

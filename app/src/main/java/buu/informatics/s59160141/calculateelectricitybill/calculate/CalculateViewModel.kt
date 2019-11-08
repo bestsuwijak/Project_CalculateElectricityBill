@@ -14,53 +14,51 @@ class CalculateViewModel(
     val database: HistoryDatabaseDao,
     application: Application) : AndroidViewModel(application){
 
-    private var viewModelJob = Job()
-    private val uiScope = CoroutineScope(Dispatchers.Main + viewModelJob)
-    private val history = database.getHistory()
-    private var lastHistory = MutableLiveData<History?>()
+//    private var viewModelJob = Job()
+//    private val uiScope = CoroutineScope(Dispatchers.Main + viewModelJob)
+//    private val history = database.getHistoryAll()
+//    private var lastHistory = MutableLiveData<History?>()
 
     private val _unit = MutableLiveData<String>()
     val unit: LiveData<String>
         get() = _unit
 
-    var _price = MutableLiveData<String>()
-//    var price: LiveData<String>
-//        get() = _price
+    private var _price = MutableLiveData<String>()
+    var price: LiveData<String>? = null
+        get() = _price
 
-    init{
-        initializeLastHistory()
-    }
+//    init{
+//        initializeLastHistory()
+//    }
 
-    private fun initializeLastHistory() {
-
-        uiScope.launch{
-           // database.clear()
-            lastHistory.value = getLastHistoryFromDatabase()
-        }    
-    }
-
-    private suspend fun getLastHistoryFromDatabase(): History? {
-        return withContext(Dispatchers.IO) {
-            var last = database.getLastHistory()
-            last
-        }
-    }
+//    private fun initializeLastHistory() {
+//
+//        uiScope.launch{
+//           // database.clear()
+//            lastHistory.value = getLastHistoryFromDatabase()
+//        }
+//    }
+//
+//    private suspend fun getLastHistoryFromDatabase(): History? {
+//        return withContext(Dispatchers.IO) {
+//            var last = database.getLastHistory()
+//            last
+//        }
+//    }
 
     fun insertEb(electricBill: ElectricBill){
         GlobalScope.launch {
-            //database.clear()
+            database.clear()
             insert(History(null, electricBill.unit, electricBill.sum))
-            var re = database.getLastHistory()
+            var result = database.getLastHistory()
             withContext(Dispatchers.Main){
-                _price.value = re?.priceData
-                //Log.i("xxxx",re?.priceData)
+                _price.value = result?.priceData
+                //Log.i("xxxx",result!!.priceData)
 
             }
         }
 
     }
-
-
 
     private suspend fun insert(newHistory: History){
         withContext(Dispatchers.IO) {
@@ -68,20 +66,20 @@ class CalculateViewModel(
         }
     }
 
-    override fun onCleared() {
-        super.onCleared()
-        viewModelJob.cancel()
-    }
+//    override fun onCleared() {
+//        super.onCleared()
+//        viewModelJob.cancel()
+//    }
 
-    private val _eventCalculate = MutableLiveData<Boolean>()
-    val eventCalculate: LiveData<Boolean>
-        get() = _eventCalculate
-
-    fun onBtnCalculate() {
-        _eventCalculate.value = true
-    }
-    fun onBtnCalculateComplete() {
-        _eventCalculate.value = false
-    }
+//    private val _eventCalculate = MutableLiveData<Boolean>()
+//    val eventCalculate: LiveData<Boolean>
+//        get() = _eventCalculate
+//
+//    fun onBtnCalculate() {
+//        _eventCalculate.value = true
+//    }
+//    fun onBtnCalculateComplete() {
+//        _eventCalculate.value = false
+//    }
 
 }

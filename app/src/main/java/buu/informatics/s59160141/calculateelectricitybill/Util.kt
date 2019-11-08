@@ -4,4 +4,6 @@ import android.widget.CheckedTextView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
-class TextItemViewHolder(val textView: TextView): RecyclerView.ViewHolder(textView)
+class TextItemViewHolder(val textView: TextView): RecyclerView.ViewHolder(textView) {
+
+}
