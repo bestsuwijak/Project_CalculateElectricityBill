@@ -35,7 +35,6 @@ class CalculateViewModel(
 
         uiScope.launch{
            // database.clear()
-            //database.insert()
             lastHistory.value = getLastHistoryFromDatabase()
         }    
     }
