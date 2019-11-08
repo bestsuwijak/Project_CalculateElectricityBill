@@ -8,13 +8,16 @@
         <variable
             name="electricBill"
             type="buu.informatics.s59160141.calculateelectricitybill.ElectricBill"/>
+        <variable
+            name="calculateViewModel"
+            type="buu.informatics.s59160141.calculateelectricitybill.calculate.CalculateViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/background"
-        tools:context=".CalculateFragment">
+        tools:context=".calculate.CalculateFragment">
 
 
         <TextView

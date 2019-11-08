@@ -1,4 +1,4 @@
-package buu.informatics.s59160141.calculateelectricitybill
+package buu.informatics.s59160141.calculateelectricitybill.detail
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

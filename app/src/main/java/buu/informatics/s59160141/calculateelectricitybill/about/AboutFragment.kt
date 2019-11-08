@@ -1,4 +1,4 @@
-package buu.informatics.s59160141.calculateelectricitybill
+package buu.informatics.s59160141.calculateelectricitybill.about
 
 
 import android.content.Intent
@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.*
 import androidx.fragment.app.Fragment
 import androidx.databinding.DataBindingUtil
+import buu.informatics.s59160141.calculateelectricitybill.R
 import buu.informatics.s59160141.calculateelectricitybill.databinding.FragmentAboutBinding
 
 /**
@@ -20,7 +21,8 @@ class AboutFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         binding = DataBindingUtil.inflate<FragmentAboutBinding>(
-            inflater,R.layout.fragment_about,container,false
+            inflater,
+            R.layout.fragment_about,container,false
         )
 
         setHasOptionsMenu(true)
@@ -37,6 +39,8 @@ class AboutFragment : Fragment() {
     private fun shareSuccess() {
         startActivity(getShareIntent())
     }
+
+    //Menu
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         super.onCreateOptionsMenu(menu, inflater)
         inflater.inflate(R.menu.share_menu, menu)

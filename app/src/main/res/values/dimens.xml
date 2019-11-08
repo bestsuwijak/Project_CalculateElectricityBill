@@ -15,4 +15,5 @@
     <dimen name="layout95dp">95dp</dimen>
     <dimen name="layout50dp">50dp</dimen>
     <dimen name="margin30dp">30dp</dimen>
+    <dimen name="padding16dp">16dp</dimen>
 </resources>

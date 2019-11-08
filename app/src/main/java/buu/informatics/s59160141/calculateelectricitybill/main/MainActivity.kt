@@ -1,12 +1,12 @@
-package buu.informatics.s59160141.calculateelectricitybill
+package buu.informatics.s59160141.calculateelectricitybill.main
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import androidx.databinding.DataBindingUtil
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.navigation.findNavController
 import androidx.navigation.ui.NavigationUI
+import buu.informatics.s59160141.calculateelectricitybill.R
 import buu.informatics.s59160141.calculateelectricitybill.databinding.ActivityMainBinding
 import timber.log.Timber
 
@@ -16,7 +16,9 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val binding = DataBindingUtil.setContentView<ActivityMainBinding>(this, R.layout.activity_main)
+        val binding = DataBindingUtil.setContentView<ActivityMainBinding>(this,
+            R.layout.activity_main
+        )
         drawerLayout = binding.drawerLayout
 
         //ปุ่มย้อนกลับ

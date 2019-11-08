@@ -10,14 +10,14 @@
             type="buu.informatics.s59160141.calculateelectricitybill.ElectricBill"/>
         <variable
             name="detailViewModel"
-            type="buu.informatics.s59160141.calculateelectricitybill.DetailViewModel"/>
+            type="buu.informatics.s59160141.calculateelectricitybill.detail.DetailViewModel"/>
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/background"
-        tools:context=".DetailFragment">
+        tools:context=".detail.DetailFragment">
 
         <TextView
             android:id="@+id/textView"

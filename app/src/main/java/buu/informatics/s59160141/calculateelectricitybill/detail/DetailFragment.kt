@@ -1,4 +1,4 @@
-package buu.informatics.s59160141.calculateelectricitybill
+package buu.informatics.s59160141.calculateelectricitybill.detail
 
 
 import android.os.Bundle
@@ -6,14 +6,12 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
-import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
+import buu.informatics.s59160141.calculateelectricitybill.*
 import buu.informatics.s59160141.calculateelectricitybill.databinding.FragmentDetailBinding
-import kotlinx.android.synthetic.main.fragment_detail.*
 
 /**
  * A simple [Fragment] subclass.
@@ -33,7 +31,8 @@ class DetailFragment : Fragment() {
     ): View? {
 
         binding = DataBindingUtil.inflate<FragmentDetailBinding>(
-            inflater,R.layout.fragment_detail,container,false
+            inflater,
+            R.layout.fragment_detail,container,false
         )
 
         args = DetailFragmentArgs.fromBundle(arguments!!)
@@ -46,8 +45,12 @@ class DetailFragment : Fragment() {
 //                .navigate(R.id.action_detailFragment_to_mainFragment)
 //        }
 
-        viewModelFactory = DetailViewModelFactory(args.unit, args.unit150, args.unit250, args.unit400,
-            args.serviceCharge, args.ft, args.vat, args.sum)
+        viewModelFactory =
+            DetailViewModelFactory(
+                args.unit, args.unit150, args.unit250, args.unit400,
+                args.serviceCharge, args.ft, args.vat, args.sum
+
+            )
         viewModel = ViewModelProviders.of(this, viewModelFactory)
             .get(DetailViewModel::class.java)
 

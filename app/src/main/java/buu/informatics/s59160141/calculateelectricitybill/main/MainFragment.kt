@@ -1,4 +1,4 @@
-package buu.informatics.s59160141.calculateelectricitybill
+package buu.informatics.s59160141.calculateelectricitybill.main
 
 
 import android.os.Bundle
@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.findNavController
 import androidx.navigation.ui.NavigationUI
+import buu.informatics.s59160141.calculateelectricitybill.R
 import buu.informatics.s59160141.calculateelectricitybill.databinding.FragmentMainBinding
 
 /**
@@ -20,7 +21,8 @@ class MainFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         val binding = DataBindingUtil.inflate<FragmentMainBinding>(
-            inflater,R.layout.fragment_main,container,false
+            inflater,
+            R.layout.fragment_main,container,false
         )
 
         binding.btnMenu1.setOnClickListener { view : View ->
