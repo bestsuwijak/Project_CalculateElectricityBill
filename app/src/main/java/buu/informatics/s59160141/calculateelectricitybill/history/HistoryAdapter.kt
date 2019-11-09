@@ -12,18 +12,21 @@ import buu.informatics.s59160141.calculateelectricitybill.database.History
 
 class HistoryAdapter: RecyclerView.Adapter<HistoryAdapter.ViewHolder>() {
 var data = ArrayList<History>()
-        set(value) {
-            field = value
-            notifyDataSetChanged()
-        }
+//    var data = listOf<History>()
+//        set(value) {
+//            field = value
+//            notifyDataSetChanged()
+//        }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+//        val view = LayoutInflater.from(parent.context).inflate(R.layout.list_item_history, parent, false)
+//        return ViewHolder(view)
         return ViewHolder.from(parent)
+//        return ViewHolder.from(parent)
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = data[position]
-//        holder.item_text.text = item.unitData +" หน่วย " +item.priceData +" บาท "
         holder.bind(item)
     }
 

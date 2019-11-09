@@ -21,8 +21,6 @@ import buu.informatics.s59160141.calculateelectricitybill.databinding.FragmentHi
  */
 class HistoryFragment : Fragment() {
 
-//    private lateinit var historyViewModel: HistoryViewModel
-//    private lateinit var viewModelFactory: HistoryViewModelFactory
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

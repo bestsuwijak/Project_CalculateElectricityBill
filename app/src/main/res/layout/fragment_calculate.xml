@@ -104,7 +104,7 @@
             android:id="@+id/input"
             android:layout_width="@dimen/layout95dp"
             android:layout_height="@dimen/layout50dp"
-            android:layout_marginTop="100dp"
+            android:layout_marginTop="@dimen/layout95dp"
             android:autofillHints=""
             android:inputType="number"
             android:maxLength="@integer/maxLength5"

@@ -1,12 +1,11 @@
 package buu.informatics.s59160141.calculateelectricitybill.calculate
 
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.view.*
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
@@ -96,6 +95,7 @@ class CalculateFragment : Fragment() {
 
         binding.setLifecycleOwner (this)
         binding.calculateViewModel = calculateViewModel
+        setHasOptionsMenu(true)
         return binding.root
     }
 
@@ -152,6 +152,36 @@ class CalculateFragment : Fragment() {
             Snackbar.make(requireView(),"ราคา  =  " + (String.format("%1.2f",result).toFloat()) + " บาท", Snackbar.LENGTH_SHORT).show();
             binding.invalidateAll()
         }
+    }
+
+
+
+    //Share
+    private fun getShareIntent() : Intent {
+        val shareIntent = Intent(Intent.ACTION_SEND)
+        shareIntent.setType("text/plain")
+            .putExtra(Intent.EXTRA_TEXT, eb.unit +" หน่วย  " +eb.sum +" บาท ")
+        return shareIntent
+    }
+    private fun shareSuccess() {
+        startActivity(getShareIntent())
+    }
+
+    //Menu
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        super.onCreateOptionsMenu(menu, inflater)
+        inflater.inflate(R.menu.share_menu, menu)
+        // check if the activity resolves
+        if (null == getShareIntent().resolveActivity(activity!!.packageManager)) {
+            // hide the menu item if it doesn't resolve
+            menu.findItem(R.id.share)?.setVisible(false)
+        }
+    }
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.share -> shareSuccess()
+        }
+        return super.onOptionsItemSelected(item)
     }
 
 
