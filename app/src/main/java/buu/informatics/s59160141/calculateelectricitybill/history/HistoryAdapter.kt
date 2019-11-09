@@ -11,42 +11,38 @@ import buu.informatics.s59160141.calculateelectricitybill.TextItemViewHolder
 import buu.informatics.s59160141.calculateelectricitybill.database.History
 
 class HistoryAdapter: RecyclerView.Adapter<HistoryAdapter.ViewHolder>() {
+var data = ArrayList<History>()
+        set(value) {
+            field = value
+            notifyDataSetChanged()
+        }
 
-    var data = listOf<History>()
-//        set(value) {
-//            field = value
-//            notifyDataSetChanged()
-//        }
-//
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val v = LayoutInflater.from(parent.context).inflate(R.layout.list_item_history, parent, false)
-        return ViewHolder(v)
+        return ViewHolder.from(parent)
     }
-    //    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TextItemViewHolder {
-//        val layoutInflater = LayoutInflater.from(parent.context)
-//        val view = layoutInflater
-//            .inflate(R.layout.text_item_view, parent, false) as TextView
-//        return TextItemViewHolder(view)
-////        return ViewHolder.from(parent)
-//    }
-//
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = data[position]
-        holder.item_text.text = item.unitData +" หน่วย " +item.priceData +" บาท "
+//        holder.item_text.text = item.unitData +" หน่วย " +item.priceData +" บาท "
+        holder.bind(item)
     }
-    //
-//    override fun onBindViewHolder(holder: TextItemViewHolder, position: Int) {
-//        val item = data[position]
-//
-//    }
-//
 
     override fun getItemCount(): Int {
         return data.size
     }
 
-    class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
+    class ViewHolder private constructor(itemView: View) : RecyclerView.ViewHolder(itemView){
         val item_text = itemView.findViewById(R.id.item_text) as TextView
+        companion object {
+            fun from(parent: ViewGroup): ViewHolder {
+                val layoutInflater = LayoutInflater.from(parent.context)
+                val view = layoutInflater.inflate(R.layout.text_item_view, parent, false)
+                return ViewHolder(view)
+            }
+        }
+    }
+
+    private fun ViewHolder.bind(item: History) {
+        item_text.text = item.historyId.toString() +".  " +item.unitData +" หน่วย " +item.priceData +" บาท "
     }
 }

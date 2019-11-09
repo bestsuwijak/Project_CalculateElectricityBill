@@ -1,6 +1,7 @@
 package buu.informatics.s59160141.calculateelectricitybill.history
 
 import android.app.Application
+import android.util.Log
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -12,37 +13,20 @@ class HistoryViewModel(
     val database: HistoryDatabaseDao,
     application: Application) : AndroidViewModel(application){
 
-    private var viewModelJob = Job()
-    private val uiScope = CoroutineScope(Dispatchers.Main + viewModelJob)
-    val history = database.getHistoryAll()
-    var lastHistory = MutableLiveData<History?>()
+    var history = MutableLiveData<List<History?>>()
 
-//    private val _unit = MutableLiveData<String>()
-//    val unit: LiveData<String>
-//        get() = _unit
-//
-//    private var _price = MutableLiveData<String>()
-//    var price: LiveData<String>? = null
-//        get() = _price
+    fun getData(){
+        GlobalScope.launch {
 
-    init{
-        initializeLastHistory()
-    }
+            var result = database.getHistoryAll()
+//            for (i in result){
+//                Log.i("test", i.unitData +" " +i.priceData)
+//            }
+            withContext(Dispatchers.Main){
+                history.value = result
+            }
 
-    private fun initializeLastHistory() {
-
-        uiScope.launch{
-           // database.clear()
-            lastHistory.value = getLastHistoryFromDatabase()
         }
     }
-
-    private suspend fun getLastHistoryFromDatabase(): History? {
-        return withContext(Dispatchers.IO) {
-            var last = database.getLastHistory()
-            last
-        }
-    }
-
 
 }

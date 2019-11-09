@@ -16,7 +16,7 @@ class CalculateViewModel(
 
 //    private var viewModelJob = Job()
 //    private val uiScope = CoroutineScope(Dispatchers.Main + viewModelJob)
-//    private val history = database.getHistoryAll()
+//    private var history = database.getHistoryAll()
 //    private var lastHistory = MutableLiveData<History?>()
 
     private val _unit = MutableLiveData<String>()
@@ -48,16 +48,14 @@ class CalculateViewModel(
 
     fun insertEb(electricBill: ElectricBill){
         GlobalScope.launch {
-            database.clear()
+            //database.clear()
             insert(History(null, electricBill.unit, electricBill.sum))
             var result = database.getLastHistory()
             withContext(Dispatchers.Main){
                 _price.value = result?.priceData
-                //Log.i("xxxx",result!!.priceData)
-
+                Log.i("xxxx",result!!.priceData)
             }
         }
-
     }
 
     private suspend fun insert(newHistory: History){
@@ -66,20 +64,10 @@ class CalculateViewModel(
         }
     }
 
+
 //    override fun onCleared() {
 //        super.onCleared()
 //        viewModelJob.cancel()
-//    }
-
-//    private val _eventCalculate = MutableLiveData<Boolean>()
-//    val eventCalculate: LiveData<Boolean>
-//        get() = _eventCalculate
-//
-//    fun onBtnCalculate() {
-//        _eventCalculate.value = true
-//    }
-//    fun onBtnCalculateComplete() {
-//        _eventCalculate.value = false
 //    }
 
 }

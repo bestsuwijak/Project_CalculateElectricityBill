@@ -3,11 +3,12 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
-<!--    <data>-->
-<!--        <variable-->
-<!--            name="calculateViewModel"-->
-<!--            type="buu.informatics.s59160141.calculateelectricitybill.calculate.CalculateViewModel" />-->
-<!--    </data>-->
+    <data>
+        <variable
+            name="historyViewModel"
+            type="buu.informatics.s59160141.calculateelectricitybill.history.HistoryViewModel" />
+
+    </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -18,6 +19,7 @@
             android:id="@+id/history_list"
             android:layout_width="0dp"
             android:layout_height="0dp"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

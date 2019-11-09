@@ -1,11 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-    <TextView xmlns:android="http://schemas.android.com/apk/res/android"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingStart="@dimen/padding16dp"
-        android:paddingEnd="@dimen/padding16dp"
-        android:textSize="24sp">
-    </TextView>
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/item_text"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:fontFamily="@font/roboto"
+    android:paddingStart="@dimen/padding16dp"
+    android:paddingTop="@dimen/padding8dp"
+    android:paddingEnd="@dimen/padding16dp"
+    android:paddingBottom="@dimen/padding8dp"
+    android:textColor="@android:color/black"
+    android:textSize="24sp"></TextView>
 
 

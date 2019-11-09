@@ -94,14 +94,6 @@ class CalculateFragment : Fragment() {
             electricBill = eb
         }
 
-//        calculateViewModel.eventCalculate.observe(this, Observer { ok ->
-//            if (ok) {
-//                calculate(Integer.parseInt(binding.input.text.toString()))
-//                calculateViewModel.onBtnCalculateComplete()
-//            }
-//        })
-
-
         binding.setLifecycleOwner (this)
         binding.calculateViewModel = calculateViewModel
         return binding.root
@@ -156,7 +148,6 @@ class CalculateFragment : Fragment() {
             val ans = String.format("%1.2f", result).toFloat()
             eb.sum = ans.toString()
             //println("รวม = " +result +"" +Ft +"" +vat +" = " +ans)
-
 
             Snackbar.make(requireView(),"ราคา  =  " + (String.format("%1.2f",result).toFloat()) + " บาท", Snackbar.LENGTH_SHORT).show();
             binding.invalidateAll()
